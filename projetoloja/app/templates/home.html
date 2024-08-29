@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>Sistema de Gerenciamento de Cosméticos</title>
+    <style>
+        body {
+            background-color: #0d0d0d; /* Cor de fundo preta */
+            color: #f8f9fa; /* Texto em branco */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #1c1c1c; /* Fundo dos containers em cinza escuro */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-custom {
+            background-color: #ff007f; /* Botão rosa */
+            border-color: #ff007f;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-custom:hover {
+            background-color: #e60073; /* Tom mais escuro de rosa para hover */
+            border-color: #e60073;
+        }
+
+        h1 {
+            color: #ff007f; /* Título em rosa */
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #ff007f; /* Cabeçalho da tabela em rosa */
+            color: white;
+            font-weight: bold;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #292929; /* Linhas pares em cinza mais claro */
+        }
+
+        .table tbody tr:hover {
+            background-color: #333333; /* Hover das linhas em cinza escuro */
+        }
+
+        .img-thumbnail {
+            max-width: 100px; /* Tamanho máximo para as imagens de produto */
+            border-radius: 8px;
+        }
+
+        .navbar {
+            background-color: #ff007f; /* Navbar em rosa */
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #e60073 !important;
+        }
+
+        .footer {
+            background-color: #1c1c1c; /* Rodapé em cinza escuro */
+            color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            
+            <a class="navbar-brand" href="#">Loja de Cosméticos</a>
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" arial-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container mt-5">
+        
+        <h1 class="text-center">Loja de Cosméticos</h1> 
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <!-- Supondo que tenha uma imagem padrão ou um campo imagem no modelo -->
+                <td>
+                    <img src="https://infiniticartoes.com.br/files/sites/6290/2018/02/homem.png " alt="{{ cliente.nome }}" class="img-thumbnail">
+                    
+                </td>
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.cidade.nome }}</td>
+                <!-- Adicione outras colunas conforme os campos disponíveis no modelo -->
+            </tr>
+
+            
+            {% endfor %}
+        </tbody>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span> <b>Avenida Américo Luz, 491 - Muzambinho, Minas Gerais</b></span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span>&copy; 2024 Loja de Cosméticos. Todos os direitos reservados.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

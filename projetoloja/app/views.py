@@ -25,4 +25,7 @@ def lista_produtos(request):
     return render(request, 'produtos.html', {'produtos': produtos})
 
 def home(request):
-    return render(request, 'home.html')  # Substitua 'home.html' pelo nome do seu template para a página inicial
+    # Buscar todos os clientes do banco de dados
+    clientes = Cliente.objects.all()
+    # Renderizar o template com os clientes
+    return render(request, 'home.html', {'clientes': clientes})
